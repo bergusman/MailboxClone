@@ -70,6 +70,11 @@
 		AD48DB4D1724306200391A7E /* messages-background-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB491724306200391A7E /* messages-background-white@2x.png */; };
 		AD48DB4E1724306200391A7E /* messages-background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB4A1724306200391A7E /* messages-background.png */; };
 		AD48DB4F1724306200391A7E /* messages-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB4B1724306200391A7E /* messages-background@2x.png */; };
+		AD48DB551724519A00391A7E /* MBMailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB541724519A00391A7E /* MBMailsViewController.m */; };
+		AD48DB57172452DB00391A7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD48DB56172452DA00391A7E /* QuartzCore.framework */; };
+		AD48DB5A1724531F00391A7E /* MBMailBox.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB591724531F00391A7E /* MBMailBox.m */; };
+		AD48DB5C172453C500391A7E /* emails.json in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB5B172453C400391A7E /* emails.json */; };
+		AD48DB5F1724560D00391A7E /* MBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB5E1724560D00391A7E /* MBMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +150,14 @@
 		AD48DB491724306200391A7E /* messages-background-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background-white@2x.png"; path = "MailboxClone/Images/messages-background-white@2x.png"; sourceTree = "<group>"; };
 		AD48DB4A1724306200391A7E /* messages-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background.png"; path = "MailboxClone/Images/messages-background.png"; sourceTree = "<group>"; };
 		AD48DB4B1724306200391A7E /* messages-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "messages-background@2x.png"; path = "MailboxClone/Images/messages-background@2x.png"; sourceTree = "<group>"; };
+		AD48DB531724519A00391A7E /* MBMailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMailsViewController.h; sourceTree = "<group>"; };
+		AD48DB541724519A00391A7E /* MBMailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMailsViewController.m; sourceTree = "<group>"; };
+		AD48DB56172452DA00391A7E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		AD48DB581724531F00391A7E /* MBMailBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMailBox.h; sourceTree = "<group>"; };
+		AD48DB591724531F00391A7E /* MBMailBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMailBox.m; sourceTree = "<group>"; };
+		AD48DB5B172453C400391A7E /* emails.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emails.json; sourceTree = "<group>"; };
+		AD48DB5D1724560D00391A7E /* MBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMainViewController.h; sourceTree = "<group>"; };
+		AD48DB5E1724560D00391A7E /* MBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD48DB57172452DB00391A7E /* QuartzCore.framework in Frameworks */,
 				AD48DA881723A87F00391A7E /* UIKit.framework in Frameworks */,
 				AD48DA8A1723A87F00391A7E /* Foundation.framework in Frameworks */,
 				AD48DA8C1723A87F00391A7E /* CoreGraphics.framework in Frameworks */,
@@ -185,6 +199,7 @@
 				AD48DA871723A87F00391A7E /* UIKit.framework */,
 				AD48DA891723A87F00391A7E /* Foundation.framework */,
 				AD48DA8B1723A87F00391A7E /* CoreGraphics.framework */,
+				AD48DB56172452DA00391A7E /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -213,6 +228,7 @@
 				AD48DAAE1723A8E300391A7E /* Icon */,
 				AD48DA931723A87F00391A7E /* main.m */,
 				AD48DA951723A87F00391A7E /* Prefix.pch */,
+				AD48DB5B172453C400391A7E /* emails.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,6 +397,8 @@
 		AD48DB341724160100391A7E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DB581724531F00391A7E /* MBMailBox.h */,
+				AD48DB591724531F00391A7E /* MBMailBox.m */,
 				AD48DB371724161300391A7E /* MBMail.h */,
 				AD48DB381724161300391A7E /* MBMail.m */,
 				AD48DB351724161300391A7E /* MBAddress.h */,
@@ -392,6 +410,10 @@
 		AD48DB3E1724167B00391A7E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DB531724519A00391A7E /* MBMailsViewController.h */,
+				AD48DB541724519A00391A7E /* MBMailsViewController.m */,
+				AD48DB5D1724560D00391A7E /* MBMainViewController.h */,
+				AD48DB5E1724560D00391A7E /* MBMainViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -512,6 +534,7 @@
 				AD48DB4D1724306200391A7E /* messages-background-white@2x.png in Resources */,
 				AD48DB4E1724306200391A7E /* messages-background.png in Resources */,
 				AD48DB4F1724306200391A7E /* messages-background@2x.png in Resources */,
+				AD48DB5C172453C500391A7E /* emails.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +552,9 @@
 				AD48DB391724161300391A7E /* MBAddress.m in Sources */,
 				AD48DB3A1724161300391A7E /* MBMail.m in Sources */,
 				AD48DB3D1724167000391A7E /* MBMailCell.m in Sources */,
+				AD48DB551724519A00391A7E /* MBMailsViewController.m in Sources */,
+				AD48DB5A1724531F00391A7E /* MBMailBox.m in Sources */,
+				AD48DB5F1724560D00391A7E /* MBMainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,17 +7,37 @@
 //
 
 #import "MBAppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
+#import "MBMailsViewController.h"
 
-#import "MBViewController.h"
+@interface MBAppDelegate ()
+
+@property (nonatomic, strong) UINavigationController *nc;
+
+@end
 
 @implementation MBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-bar-background"] forBarMetrics:UIBarMetricsDefault];
+    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"search-bar-background"]];
+    
+    UIViewController *wrapController = [[UIViewController alloc] init];
+    
+    MBMailsViewController *vc2 = [[MBMailsViewController alloc] init];
+    self.nc = [[UINavigationController alloc] initWithRootViewController:vc2];
+    
+    [wrapController.view addSubview:self.nc.view];
+    self.nc.view.frame = wrapController.view.bounds;
+    
+    self.nc.view.layer.cornerRadius = 8;
+    self.nc.view.layer.masksToBounds = YES;
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.viewController = [[MBViewController alloc] initWithNibName:@"MBViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.window.rootViewController = wrapController;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
