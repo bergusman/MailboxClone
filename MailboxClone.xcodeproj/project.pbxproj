@@ -27,10 +27,10 @@
 		AD48DA871723A87F00391A7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AD48DA891723A87F00391A7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AD48DA8B1723A87F00391A7E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		AD48DA8F1723A87F00391A7E /* MailboxClone-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MailboxClone-Info.plist"; sourceTree = "<group>"; };
+		AD48DA8F1723A87F00391A7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD48DA911723A87F00391A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AD48DA931723A87F00391A7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AD48DA951723A87F00391A7E /* MailboxClone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MailboxClone-Prefix.pch"; sourceTree = "<group>"; };
+		AD48DA951723A87F00391A7E /* Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prefix.pch; sourceTree = "<group>"; };
 		AD48DA961723A87F00391A7E /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
 		AD48DA971723A87F00391A7E /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
 		AD48DA991723A87F00391A7E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -100,12 +100,11 @@
 		AD48DA8E1723A87F00391A7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DAB41723AD4A00391A7E /* Info */,
 				AD48DAB31723AA9E00391A7E /* Default */,
 				AD48DAAE1723A8E300391A7E /* Icon */,
-				AD48DA8F1723A87F00391A7E /* MailboxClone-Info.plist */,
-				AD48DA901723A87F00391A7E /* InfoPlist.strings */,
 				AD48DA931723A87F00391A7E /* main.m */,
-				AD48DA951723A87F00391A7E /* MailboxClone-Prefix.pch */,
+				AD48DA951723A87F00391A7E /* Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -127,6 +126,15 @@
 				AD48DA9D1723A87F00391A7E /* Default-568h@2x.png */,
 			);
 			name = Default;
+			sourceTree = "<group>";
+		};
+		AD48DAB41723AD4A00391A7E /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DA8F1723A87F00391A7E /* Info.plist */,
+				AD48DA901723A87F00391A7E /* InfoPlist.strings */,
+			);
+			name = Info;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,8 +294,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MailboxClone/MailboxClone-Prefix.pch";
-				INFOPLIST_FILE = "MailboxClone/MailboxClone-Info.plist";
+				GCC_PREFIX_HEADER = MailboxClone/Prefix.pch;
+				INFOPLIST_FILE = MailboxClone/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -297,8 +305,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MailboxClone/MailboxClone-Prefix.pch";
-				INFOPLIST_FILE = "MailboxClone/MailboxClone-Info.plist";
+				GCC_PREFIX_HEADER = MailboxClone/Prefix.pch;
+				INFOPLIST_FILE = MailboxClone/Info.plist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
