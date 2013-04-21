@@ -23,7 +23,7 @@
 @property (nonatomic, copy) NSString *from;
 @property (nonatomic, copy) NSString *subject;
 @property (nonatomic, copy) NSString *body;
-@property (nonatomic, assign) NSInteger messages;
+@property (nonatomic, assign) NSUInteger messages;
 @property (nonatomic, copy) NSString *receivedAt;
 
 @property (nonatomic, assign) BOOL unread;

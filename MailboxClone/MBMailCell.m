@@ -30,6 +30,11 @@
     
     UIImageView *_unreadIcon;
     UIImageView *_starIcon;
+    
+    UIImageView *_messagesBackground;
+    UILabel *_messagesLabel;
+    
+    UIImageView *_arrowView;
 }
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -106,11 +111,11 @@
     selectedBackgroundView.backgroundColor = MB_RGB(162, 162, 162);
     self.selectedBackgroundView = selectedBackgroundView;
     
-    UIImageView *accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"more-arrow"]
-                                                   highlightedImage:[UIImage imageNamed:@"more-arrow-white"]];
-    accessoryView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    accessoryView.center = CGPointMake(contentSize.width - 8 - accessoryView.frame.size.width / 2, contentSize.height / 2);
-    [self.contentView addSubview:accessoryView];
+    _arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"more-arrow"]
+                                   highlightedImage:[UIImage imageNamed:@"more-arrow-white"]];
+    _arrowView.frame = CGRectMake(contentSize.width - 9 - 8, 37, 9, 13);
+    _arrowView.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    [self.contentView addSubview:_arrowView];
     
     _fromLabel = [[UILabel alloc] init];
     _fromLabel.backgroundColor = [UIColor clearColor];
@@ -148,17 +153,39 @@
     _unreadIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"unread-button"]
                                     highlightedImage:[UIImage imageNamed:@"new-message-dot-white"]];
     _unreadIcon.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    _unreadIcon.center = CGPointMake(15, contentSize.height / 2);
+    _unreadIcon.center = CGPointMake(15, 42);
     [self.contentView addSubview:_unreadIcon];
     
     _starIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"inbox-star-icon"]
                                   highlightedImage:[UIImage imageNamed:@"inbox-star-icon-white"]];
-    _starIcon.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    _starIcon.center = CGPointMake(16, contentSize.height / 2 - 1);
+    _starIcon.center = CGPointMake(16, 42);
     [self.contentView addSubview:_starIcon];
     
     _unreadIcon.hidden = YES;
     _starIcon.hidden = YES;
+    
+    UIImage *bg1 = [[UIImage imageNamed:@"messages-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
+    UIImage *bg2 = [[UIImage imageNamed:@"messages-background-white"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
+    _messagesBackground = [[UIImageView alloc] initWithImage:bg1 highlightedImage:bg2];
+    [self.contentView addSubview:_messagesBackground];
+    
+    _messagesLabel = [[UILabel alloc] init];
+    _messagesLabel.backgroundColor = [UIColor clearColor];
+    _messagesLabel.textColor = [UIColor whiteColor];
+    _messagesLabel.highlightedTextColor = MB_RGB(162, 162, 162);
+    _messagesLabel.font = [UIFont boldSystemFontOfSize:12];
+    _messagesLabel.textAlignment = UITextAlignmentCenter;
+    [self.contentView addSubview:_messagesLabel];
+    
+    _messagesBackground.hidden = YES;
+    _messagesLabel.hidden = YES;
+    
+    /*
+    _fromLabel.backgroundColor = MB_RGBA(255, 0, 0, 0.2);
+    _dateLabel.backgroundColor = MB_RGBA(0, 0, 255, 0.2);
+    _subjectLabel.backgroundColor = MB_RGBA(0, 255, 0, 0.2);
+    _bodyLabel.backgroundColor = MB_RGBA(0, 255, 255, 0.2);
+     */
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -180,26 +207,22 @@
     
     CGSize contentSize = self.contentView.bounds.size;
     
-    CGSize s = [_dateLabel sizeThatFits:CGSizeMake(100, 0)];
-    //NSLog(@"%@", NSStringFromCGSize(s));
+    CGSize messagesSize = [_messagesLabel sizeThatFits:CGSizeMake(200, 0)];
+    messagesSize.width += 8;
+    _messagesBackground.frame = CGRectMake(contentSize.width - 25 - messagesSize.width, 35, messagesSize.width, 17);
+    _messagesLabel.frame = _messagesBackground.frame;
     
-    _fromLabel.frame = CGRectMake(30, 6, 200, 18);
+    CGFloat w = _messagesLabel.frame.origin.x - 10 - 30;
     
-    _subjectLabel.frame = CGRectMake(30, 24, 260, 19);
+    CGSize dateSize = [_dateLabel sizeThatFits:CGSizeMake(200, 0)];
+    _dateLabel.frame = CGRectMake(320 - 23 - dateSize.width, 6, dateSize.width, 18);
     
-    //CGSize bodySize = [_bodyLabel.text sizeWithFont:_bodyLabel.font constrainedToSize:CGSizeMake(200, 0) lineBreakMode:UILineBreakModeWordWrap];
-    //CGSize bodySize = [_bodyLabel sizeThatFits:CGSizeMake(200, 0)];
-    CGSize bodySize = [_bodyLabel.text sizeWithFont:_bodyLabel.font constrainedToSize:CGSizeMake(200, 0) lineBreakMode:UILineBreakModeWordWrap];
-    //NSLog(@"%@", NSStringFromCGSize(bodySize));
-    CGRect rect = [_bodyLabel textRectForBounds:CGRectMake(0, 0, 200, 50) limitedToNumberOfLines:2];
-    //NSLog(@"%@", NSStringFromCGRect(rect));
-    _bodyLabel.frame = CGRectMake(30, 43, bodySize.width, bodySize.height);
+    _fromLabel.frame = CGRectMake(30, 6, _dateLabel.frame.origin.x - 30 - 10, 18);
     
+    _subjectLabel.frame = CGRectMake(30, 24, w, 19);
     
-    _dateLabel.frame = CGRectMake(320 - 23 - 80, 6, 80, 18);
-    
-    
-    
+    CGRect bodyRect = [_bodyLabel textRectForBounds:CGRectMake(0, 0, w, 50) limitedToNumberOfLines:2];
+    _bodyLabel.frame = CGRectMake(30, 43, bodyRect.size.width, bodyRect.size.height);
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gestureRecognizer {
@@ -352,5 +375,12 @@
 
 - (void)setRightImage:(UIImage *)rightImage { _rightImageView.image = rightImage; }
 - (UIImage *)rightImage { return _rightImageView.image; }
+
+- (void)setMessages:(NSUInteger)messages {
+    _messages = messages;
+    _messagesLabel.text = [NSString stringWithFormat:@"%u", messages];
+    _messagesBackground.hidden = !(messages > 1);
+    _messagesLabel.hidden = _messagesBackground.hidden;
+}
 
 @end
