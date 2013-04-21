@@ -59,9 +59,9 @@
 - (void)initialize {
     self.contentView.backgroundColor = [UIColor whiteColor];
     
-    _leftColor = RB_RGB(98, 217, 98);
-    _rightColor = RB_RGB(255, 222, 71);
-    _normalColor = RB_RGB(227, 227, 227);
+    _leftColor = MB_RGB(98, 217, 98);
+    _rightColor = MB_RGB(255, 222, 71);
+    _normalColor = MB_RGB(227, 227, 227);
     
     _leftImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"swipe-archive-icon"]];
     _rightImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"swipe-defer-icon"]];
@@ -73,7 +73,7 @@
     CGSize contentSize = self.contentView.bounds.size;
     
     _separator = [[UIView alloc] init];
-    _separator.backgroundColor = RB_RGB(199, 199, 199);
+    _separator.backgroundColor = MB_RGB(199, 199, 199);
     _separator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleWidth;
     _separator.frame = CGRectMake(0, contentSize.height - 1, contentSize.width, 1);
     [self.contentView addSubview:_separator];
@@ -103,7 +103,7 @@
     UIView *selectedBackgroundView = [[UIView alloc] init];
     selectedBackgroundView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
     selectedBackgroundView.backgroundColor = [UIColor orangeColor];
-    selectedBackgroundView.backgroundColor = RB_RGB(162, 162, 162);
+    selectedBackgroundView.backgroundColor = MB_RGB(162, 162, 162);
     self.selectedBackgroundView = selectedBackgroundView;
     
     UIImageView *accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"more-arrow"]
@@ -114,21 +114,21 @@
     
     _fromLabel = [[UILabel alloc] init];
     _fromLabel.backgroundColor = [UIColor clearColor];
-    _fromLabel.textColor = RB_RGB(54, 57, 58);
+    _fromLabel.textColor = MB_RGB(54, 57, 58);
     _fromLabel.highlightedTextColor = [UIColor whiteColor];
     _fromLabel.font = [UIFont systemFontOfSize:14];
     [self.contentView addSubview:_fromLabel];
     
     _subjectLabel = [[UILabel alloc] init];
     _subjectLabel.backgroundColor = [UIColor clearColor];
-    _subjectLabel.textColor = RB_RGB(54, 57, 58);
+    _subjectLabel.textColor = MB_RGB(54, 57, 58);
     _subjectLabel.highlightedTextColor = [UIColor whiteColor];
     _subjectLabel.font = [UIFont boldSystemFontOfSize:15];
     [self.contentView addSubview:_subjectLabel];
     
     _bodyLabel = [[UILabel alloc] init];
     _bodyLabel.backgroundColor = [UIColor clearColor];
-    _bodyLabel.textColor = RB_RGB(134, 134, 134);
+    _bodyLabel.textColor = MB_RGB(134, 134, 134);
     _bodyLabel.highlightedTextColor = [UIColor whiteColor];
     _bodyLabel.font = [UIFont systemFontOfSize:14];
     _bodyLabel.numberOfLines = 2;
@@ -136,7 +136,7 @@
     
     _dateLabel = [[UILabel alloc] init];
     _dateLabel.backgroundColor = [UIColor clearColor];
-    _dateLabel.textColor = RB_RGB(136, 136, 136);
+    _dateLabel.textColor = MB_RGB(136, 136, 136);
     _dateLabel.highlightedTextColor = [UIColor whiteColor];
     _dateLabel.font = [UIFont systemFontOfSize:14];
     _dateLabel.textAlignment = UITextAlignmentRight;
@@ -163,12 +163,12 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    _separator.backgroundColor = RB_RGB(199, 199, 199);
+    _separator.backgroundColor = MB_RGB(199, 199, 199);
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     [super setHighlighted:highlighted animated:animated];
-    _separator.backgroundColor = RB_RGB(199, 199, 199);
+    _separator.backgroundColor = MB_RGB(199, 199, 199);
 }
 
 - (void)layoutSubviews {
