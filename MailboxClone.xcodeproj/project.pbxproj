@@ -16,8 +16,6 @@
 		AD48DA9A1723A87F00391A7E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DA991723A87F00391A7E /* Default.png */; };
 		AD48DA9C1723A87F00391A7E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DA9B1723A87F00391A7E /* Default@2x.png */; };
 		AD48DA9E1723A87F00391A7E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DA9D1723A87F00391A7E /* Default-568h@2x.png */; };
-		AD48DAA11723A87F00391A7E /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DAA01723A87F00391A7E /* MBViewController.m */; };
-		AD48DAA41723A87F00391A7E /* MBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAA21723A87F00391A7E /* MBViewController.xib */; };
 		AD48DAAD1723A8D300391A7E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAAC1723A8D300391A7E /* Icon@2x.png */; };
 		AD48DAB21723AA4000391A7E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAB11723AA4000391A7E /* Icon.png */; };
 		AD48DAB91723B90E00391A7E /* inbox-star-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAB71723B90E00391A7E /* inbox-star-icon.png */; };
@@ -91,9 +89,6 @@
 		AD48DA991723A87F00391A7E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AD48DA9B1723A87F00391A7E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AD48DA9D1723A87F00391A7E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AD48DA9F1723A87F00391A7E /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
-		AD48DAA01723A87F00391A7E /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
-		AD48DAA31723A87F00391A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MBViewController.xib; sourceTree = "<group>"; };
 		AD48DAAC1723A8D300391A7E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		AD48DAB11723AA4000391A7E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		AD48DAB71723B90E00391A7E /* inbox-star-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-star-icon.png"; path = "MailboxClone/Images/inbox-star-icon.png"; sourceTree = "<group>"; };
@@ -212,9 +207,6 @@
 				AD48DB3E1724167B00391A7E /* Controllers */,
 				AD48DA961723A87F00391A7E /* MBAppDelegate.h */,
 				AD48DA971723A87F00391A7E /* MBAppDelegate.m */,
-				AD48DA9F1723A87F00391A7E /* MBViewController.h */,
-				AD48DAA01723A87F00391A7E /* MBViewController.m */,
-				AD48DAA21723A87F00391A7E /* MBViewController.xib */,
 				AD48DA8E1723A87F00391A7E /* Supporting Files */,
 			);
 			path = MailboxClone;
@@ -485,7 +477,6 @@
 				AD48DA9A1723A87F00391A7E /* Default.png in Resources */,
 				AD48DA9C1723A87F00391A7E /* Default@2x.png in Resources */,
 				AD48DA9E1723A87F00391A7E /* Default-568h@2x.png in Resources */,
-				AD48DAA41723A87F00391A7E /* MBViewController.xib in Resources */,
 				AD48DAAD1723A8D300391A7E /* Icon@2x.png in Resources */,
 				AD48DAB21723AA4000391A7E /* Icon.png in Resources */,
 				AD48DAB91723B90E00391A7E /* inbox-star-icon.png in Resources */,
@@ -547,7 +538,6 @@
 			files = (
 				AD48DA941723A87F00391A7E /* main.m in Sources */,
 				AD48DA981723A87F00391A7E /* MBAppDelegate.m in Sources */,
-				AD48DAA11723A87F00391A7E /* MBViewController.m in Sources */,
 				AD48DAE11723F28400391A7E /* MBSegmentedControl.m in Sources */,
 				AD48DB391724161300391A7E /* MBAddress.m in Sources */,
 				AD48DB3A1724161300391A7E /* MBMail.m in Sources */,
@@ -567,14 +557,6 @@
 				AD48DA911723A87F00391A7E /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		AD48DAA21723A87F00391A7E /* MBViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD48DAA31723A87F00391A7E /* en */,
-			);
-			name = MBViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
