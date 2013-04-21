@@ -63,6 +63,8 @@
 		AD48DB2B172402C000391A7E /* inbox-icon-background-overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB25172402C000391A7E /* inbox-icon-background-overlay@2x.png */; };
 		AD48DB2C172402C000391A7E /* later-empty-state-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB26172402C000391A7E /* later-empty-state-icon.png */; };
 		AD48DB2D172402C000391A7E /* later-empty-state-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB27172402C000391A7E /* later-empty-state-icon@2x.png */; };
+		AD48DB391724161300391A7E /* MBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB361724161300391A7E /* MBAddress.m */; };
+		AD48DB3A1724161300391A7E /* MBMail.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB381724161300391A7E /* MBMail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +130,10 @@
 		AD48DB25172402C000391A7E /* inbox-icon-background-overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-icon-background-overlay@2x.png"; path = "MailboxClone/Images/inbox-icon-background-overlay@2x.png"; sourceTree = "<group>"; };
 		AD48DB26172402C000391A7E /* later-empty-state-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "later-empty-state-icon.png"; path = "MailboxClone/Images/later-empty-state-icon.png"; sourceTree = "<group>"; };
 		AD48DB27172402C000391A7E /* later-empty-state-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "later-empty-state-icon@2x.png"; path = "MailboxClone/Images/later-empty-state-icon@2x.png"; sourceTree = "<group>"; };
+		AD48DB351724161300391A7E /* MBAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBAddress.h; sourceTree = "<group>"; };
+		AD48DB361724161300391A7E /* MBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAddress.m; sourceTree = "<group>"; };
+		AD48DB371724161300391A7E /* MBMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMail.h; sourceTree = "<group>"; };
+		AD48DB381724161300391A7E /* MBMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +181,7 @@
 		AD48DA8D1723A87F00391A7E /* MailboxClone */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DB341724160100391A7E /* Models */,
 				AD48DADE1723F26F00391A7E /* Views */,
 				AD48DA961723A87F00391A7E /* MBAppDelegate.h */,
 				AD48DA971723A87F00391A7E /* MBAppDelegate.m */,
@@ -356,6 +363,17 @@
 			name = "State Icon";
 			sourceTree = "<group>";
 		};
+		AD48DB341724160100391A7E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DB371724161300391A7E /* MBMail.h */,
+				AD48DB381724161300391A7E /* MBMail.m */,
+				AD48DB351724161300391A7E /* MBAddress.h */,
+				AD48DB361724161300391A7E /* MBAddress.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -471,6 +489,8 @@
 				AD48DA981723A87F00391A7E /* MBAppDelegate.m in Sources */,
 				AD48DAA11723A87F00391A7E /* MBViewController.m in Sources */,
 				AD48DAE11723F28400391A7E /* MBSegmentedControl.m in Sources */,
+				AD48DB391724161300391A7E /* MBAddress.m in Sources */,
+				AD48DB3A1724161300391A7E /* MBMail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
