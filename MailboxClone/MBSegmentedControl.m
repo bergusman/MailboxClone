@@ -78,8 +78,11 @@
         button.selected = NO;
     }
     button.selected = YES;
-    _selectedSegmentIndex = [_buttons indexOfObject:button];
-    [self sendActionsForControlEvents:UIControlEventValueChanged];
+    NSInteger index = [_buttons indexOfObject:button];
+    if (_selectedSegmentIndex != index) {
+        _selectedSegmentIndex = index;
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
+    }
 }
 
 - (void)setSelectedSegmentIndex:(NSInteger)selectedSegmentIndex {
