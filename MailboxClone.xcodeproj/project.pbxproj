@@ -18,6 +18,8 @@
 		AD48DA9E1723A87F00391A7E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DA9D1723A87F00391A7E /* Default-568h@2x.png */; };
 		AD48DAA11723A87F00391A7E /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DAA01723A87F00391A7E /* MBViewController.m */; };
 		AD48DAA41723A87F00391A7E /* MBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAA21723A87F00391A7E /* MBViewController.xib */; };
+		AD48DAAD1723A8D300391A7E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAAC1723A8D300391A7E /* Icon@2x.png */; };
+		AD48DAB21723AA4000391A7E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAB11723AA4000391A7E /* Icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		AD48DA9F1723A87F00391A7E /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
 		AD48DAA01723A87F00391A7E /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
 		AD48DAA31723A87F00391A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MBViewController.xib; sourceTree = "<group>"; };
+		AD48DAAC1723A8D300391A7E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		AD48DAB11723AA4000391A7E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,15 +100,33 @@
 		AD48DA8E1723A87F00391A7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DAB31723AA9E00391A7E /* Default */,
+				AD48DAAE1723A8E300391A7E /* Icon */,
 				AD48DA8F1723A87F00391A7E /* MailboxClone-Info.plist */,
 				AD48DA901723A87F00391A7E /* InfoPlist.strings */,
 				AD48DA931723A87F00391A7E /* main.m */,
 				AD48DA951723A87F00391A7E /* MailboxClone-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AD48DAAE1723A8E300391A7E /* Icon */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DAB11723AA4000391A7E /* Icon.png */,
+				AD48DAAC1723A8D300391A7E /* Icon@2x.png */,
+			);
+			name = Icon;
+			sourceTree = "<group>";
+		};
+		AD48DAB31723AA9E00391A7E /* Default */ = {
+			isa = PBXGroup;
+			children = (
 				AD48DA991723A87F00391A7E /* Default.png */,
 				AD48DA9B1723A87F00391A7E /* Default@2x.png */,
 				AD48DA9D1723A87F00391A7E /* Default-568h@2x.png */,
 			);
-			name = "Supporting Files";
+			name = Default;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +186,8 @@
 				AD48DA9C1723A87F00391A7E /* Default@2x.png in Resources */,
 				AD48DA9E1723A87F00391A7E /* Default-568h@2x.png in Resources */,
 				AD48DAA41723A87F00391A7E /* MBViewController.xib in Resources */,
+				AD48DAAD1723A8D300391A7E /* Icon@2x.png in Resources */,
+				AD48DAB21723AA4000391A7E /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
