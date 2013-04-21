@@ -164,8 +164,8 @@
     _unreadIcon.hidden = YES;
     _starIcon.hidden = YES;
     
-    UIImage *bg1 = [[UIImage imageNamed:@"messages-background"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
-    UIImage *bg2 = [[UIImage imageNamed:@"messages-background-white"] resizableImageWithCapInsets:UIEdgeInsetsMake(4, 4, 4, 4)];
+    UIImage *bg1 = [[UIImage imageNamed:@"messages-background"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
+    UIImage *bg2 = [[UIImage imageNamed:@"messages-background-white"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
     _messagesBackground = [[UIImageView alloc] initWithImage:bg1 highlightedImage:bg2];
     [self.contentView addSubview:_messagesBackground];
     
@@ -207,22 +207,27 @@
     
     CGSize contentSize = self.contentView.bounds.size;
     
-    CGSize messagesSize = [_messagesLabel sizeThatFits:CGSizeMake(200, 0)];
+    CGSize messagesSize = [_messagesLabel.text sizeWithFont:_messagesLabel.font];
     messagesSize.width += 8;
     _messagesBackground.frame = CGRectMake(contentSize.width - 25 - messagesSize.width, 35, messagesSize.width, 17);
     _messagesLabel.frame = _messagesBackground.frame;
     
     CGFloat w = _messagesLabel.frame.origin.x - 10 - 30;
     
-    CGSize dateSize = [_dateLabel sizeThatFits:CGSizeMake(200, 0)];
+    CGSize dateSize = [_dateLabel.text sizeWithFont:_dateLabel.font];
     _dateLabel.frame = CGRectMake(320 - 23 - dateSize.width, 6, dateSize.width, 18);
     
     _fromLabel.frame = CGRectMake(30, 6, _dateLabel.frame.origin.x - 30 - 10, 18);
     
     _subjectLabel.frame = CGRectMake(30, 24, w, 19);
     
-    CGRect bodyRect = [_bodyLabel textRectForBounds:CGRectMake(0, 0, w, 50) limitedToNumberOfLines:2];
-    _bodyLabel.frame = CGRectMake(30, 43, bodyRect.size.width, bodyRect.size.height);
+    //CGRect bodyRect = [_bodyLabel textRectForBounds:CGRectMake(0, 0, w, 50) limitedToNumberOfLines:2];
+    CGSize bodySize = [_bodyLabel.text sizeWithFont:_bodyLabel.font];
+    if (bodySize.width > w) {
+        _bodyLabel.frame = CGRectMake(30, 43, w, 36);
+    } else {
+        _bodyLabel.frame = CGRectMake(30, 43, w, 18);
+    }
 }
 
 - (void)pan:(UIPanGestureRecognizer *)gestureRecognizer {
