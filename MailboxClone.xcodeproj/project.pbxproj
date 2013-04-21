@@ -20,6 +20,27 @@
 		AD48DAA41723A87F00391A7E /* MBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAA21723A87F00391A7E /* MBViewController.xib */; };
 		AD48DAAD1723A8D300391A7E /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAAC1723A8D300391A7E /* Icon@2x.png */; };
 		AD48DAB21723AA4000391A7E /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAB11723AA4000391A7E /* Icon.png */; };
+		AD48DAB91723B90E00391A7E /* inbox-star-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAB71723B90E00391A7E /* inbox-star-icon.png */; };
+		AD48DABA1723B90E00391A7E /* inbox-star-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAB81723B90E00391A7E /* inbox-star-icon@2x.png */; };
+		AD48DAC31723BBE000391A7E /* new-message-dot-white.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DABF1723BBE000391A7E /* new-message-dot-white.png */; };
+		AD48DAC41723BBE000391A7E /* new-message-dot-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAC01723BBE000391A7E /* new-message-dot-white@2x.png */; };
+		AD48DAC51723BBE000391A7E /* unread-button.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAC11723BBE000391A7E /* unread-button.png */; };
+		AD48DAC61723BBE000391A7E /* unread-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAC21723BBE000391A7E /* unread-button@2x.png */; };
+		AD48DAD11723BE6C00391A7E /* inbox-star-icon-white.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DACF1723BE6C00391A7E /* inbox-star-icon-white.png */; };
+		AD48DAD21723BE6C00391A7E /* inbox-star-icon-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAD01723BE6C00391A7E /* inbox-star-icon-white@2x.png */; };
+		AD48DAE11723F28400391A7E /* MBSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DAE01723F28400391A7E /* MBSegmentedControl.m */; };
+		AD48DAF11723F34400391A7E /* archive-button-background-active.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAE51723F34400391A7E /* archive-button-background-active.png */; };
+		AD48DAF21723F34400391A7E /* archive-button-background-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAE61723F34400391A7E /* archive-button-background-active@2x.png */; };
+		AD48DAF31723F34400391A7E /* archive-button-background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAE71723F34400391A7E /* archive-button-background.png */; };
+		AD48DAF41723F34400391A7E /* archive-button-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAE81723F34400391A7E /* archive-button-background@2x.png */; };
+		AD48DAF51723F34400391A7E /* defer-button-background-active.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAE91723F34400391A7E /* defer-button-background-active.png */; };
+		AD48DAF61723F34400391A7E /* defer-button-background-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAEA1723F34400391A7E /* defer-button-background-active@2x.png */; };
+		AD48DAF71723F34400391A7E /* defer-button-background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAEB1723F34400391A7E /* defer-button-background.png */; };
+		AD48DAF81723F34400391A7E /* defer-button-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAEC1723F34400391A7E /* defer-button-background@2x.png */; };
+		AD48DAF91723F34400391A7E /* inbox-button-background-active.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAED1723F34400391A7E /* inbox-button-background-active.png */; };
+		AD48DAFA1723F34400391A7E /* inbox-button-background-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAEE1723F34400391A7E /* inbox-button-background-active@2x.png */; };
+		AD48DAFB1723F34400391A7E /* inbox-button-background.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAEF1723F34400391A7E /* inbox-button-background.png */; };
+		AD48DAFC1723F34400391A7E /* inbox-button-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DAF01723F34400391A7E /* inbox-button-background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +62,28 @@
 		AD48DAA31723A87F00391A7E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MBViewController.xib; sourceTree = "<group>"; };
 		AD48DAAC1723A8D300391A7E /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		AD48DAB11723AA4000391A7E /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		AD48DAB71723B90E00391A7E /* inbox-star-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-star-icon.png"; path = "MailboxClone/Images/inbox-star-icon.png"; sourceTree = "<group>"; };
+		AD48DAB81723B90E00391A7E /* inbox-star-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-star-icon@2x.png"; path = "MailboxClone/Images/inbox-star-icon@2x.png"; sourceTree = "<group>"; };
+		AD48DABF1723BBE000391A7E /* new-message-dot-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-message-dot-white.png"; path = "MailboxClone/Images/new-message-dot-white.png"; sourceTree = "<group>"; };
+		AD48DAC01723BBE000391A7E /* new-message-dot-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "new-message-dot-white@2x.png"; path = "MailboxClone/Images/new-message-dot-white@2x.png"; sourceTree = "<group>"; };
+		AD48DAC11723BBE000391A7E /* unread-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unread-button.png"; path = "MailboxClone/Images/unread-button.png"; sourceTree = "<group>"; };
+		AD48DAC21723BBE000391A7E /* unread-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "unread-button@2x.png"; path = "MailboxClone/Images/unread-button@2x.png"; sourceTree = "<group>"; };
+		AD48DACF1723BE6C00391A7E /* inbox-star-icon-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-star-icon-white.png"; path = "MailboxClone/Images/inbox-star-icon-white.png"; sourceTree = "<group>"; };
+		AD48DAD01723BE6C00391A7E /* inbox-star-icon-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-star-icon-white@2x.png"; path = "MailboxClone/Images/inbox-star-icon-white@2x.png"; sourceTree = "<group>"; };
+		AD48DADF1723F28400391A7E /* MBSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSegmentedControl.h; sourceTree = "<group>"; };
+		AD48DAE01723F28400391A7E /* MBSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSegmentedControl.m; sourceTree = "<group>"; };
+		AD48DAE51723F34400391A7E /* archive-button-background-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archive-button-background-active.png"; path = "MailboxClone/Images/archive-button-background-active.png"; sourceTree = "<group>"; };
+		AD48DAE61723F34400391A7E /* archive-button-background-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archive-button-background-active@2x.png"; path = "MailboxClone/Images/archive-button-background-active@2x.png"; sourceTree = "<group>"; };
+		AD48DAE71723F34400391A7E /* archive-button-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archive-button-background.png"; path = "MailboxClone/Images/archive-button-background.png"; sourceTree = "<group>"; };
+		AD48DAE81723F34400391A7E /* archive-button-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "archive-button-background@2x.png"; path = "MailboxClone/Images/archive-button-background@2x.png"; sourceTree = "<group>"; };
+		AD48DAE91723F34400391A7E /* defer-button-background-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "defer-button-background-active.png"; path = "MailboxClone/Images/defer-button-background-active.png"; sourceTree = "<group>"; };
+		AD48DAEA1723F34400391A7E /* defer-button-background-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "defer-button-background-active@2x.png"; path = "MailboxClone/Images/defer-button-background-active@2x.png"; sourceTree = "<group>"; };
+		AD48DAEB1723F34400391A7E /* defer-button-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "defer-button-background.png"; path = "MailboxClone/Images/defer-button-background.png"; sourceTree = "<group>"; };
+		AD48DAEC1723F34400391A7E /* defer-button-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "defer-button-background@2x.png"; path = "MailboxClone/Images/defer-button-background@2x.png"; sourceTree = "<group>"; };
+		AD48DAED1723F34400391A7E /* inbox-button-background-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-button-background-active.png"; path = "MailboxClone/Images/inbox-button-background-active.png"; sourceTree = "<group>"; };
+		AD48DAEE1723F34400391A7E /* inbox-button-background-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-button-background-active@2x.png"; path = "MailboxClone/Images/inbox-button-background-active@2x.png"; sourceTree = "<group>"; };
+		AD48DAEF1723F34400391A7E /* inbox-button-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-button-background.png"; path = "MailboxClone/Images/inbox-button-background.png"; sourceTree = "<group>"; };
+		AD48DAF01723F34400391A7E /* inbox-button-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-button-background@2x.png"; path = "MailboxClone/Images/inbox-button-background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				AD48DA8D1723A87F00391A7E /* MailboxClone */,
+				AD48DAB51723AD8400391A7E /* Resources */,
 				AD48DA861723A87F00391A7E /* Frameworks */,
 				AD48DA851723A87F00391A7E /* Products */,
 			);
@@ -87,6 +131,7 @@
 		AD48DA8D1723A87F00391A7E /* MailboxClone */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DADE1723F26F00391A7E /* Views */,
 				AD48DA961723A87F00391A7E /* MBAppDelegate.h */,
 				AD48DA971723A87F00391A7E /* MBAppDelegate.m */,
 				AD48DA9F1723A87F00391A7E /* MBViewController.h */,
@@ -135,6 +180,74 @@
 				AD48DA901723A87F00391A7E /* InfoPlist.strings */,
 			);
 			name = Info;
+			sourceTree = "<group>";
+		};
+		AD48DAB51723AD8400391A7E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DAB61723B90300391A7E /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AD48DAB61723B90300391A7E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DAE41723F2C100391A7E /* Segmented Control */,
+				AD48DAE31723F2A400391A7E /* Unread Icon */,
+				AD48DAE21723F29E00391A7E /* Star Icon */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		AD48DADE1723F26F00391A7E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DADF1723F28400391A7E /* MBSegmentedControl.h */,
+				AD48DAE01723F28400391A7E /* MBSegmentedControl.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		AD48DAE21723F29E00391A7E /* Star Icon */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DAB71723B90E00391A7E /* inbox-star-icon.png */,
+				AD48DAB81723B90E00391A7E /* inbox-star-icon@2x.png */,
+				AD48DACF1723BE6C00391A7E /* inbox-star-icon-white.png */,
+				AD48DAD01723BE6C00391A7E /* inbox-star-icon-white@2x.png */,
+			);
+			name = "Star Icon";
+			sourceTree = "<group>";
+		};
+		AD48DAE31723F2A400391A7E /* Unread Icon */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DAC11723BBE000391A7E /* unread-button.png */,
+				AD48DAC21723BBE000391A7E /* unread-button@2x.png */,
+				AD48DABF1723BBE000391A7E /* new-message-dot-white.png */,
+				AD48DAC01723BBE000391A7E /* new-message-dot-white@2x.png */,
+			);
+			name = "Unread Icon";
+			sourceTree = "<group>";
+		};
+		AD48DAE41723F2C100391A7E /* Segmented Control */ = {
+			isa = PBXGroup;
+			children = (
+				AD48DAEB1723F34400391A7E /* defer-button-background.png */,
+				AD48DAEC1723F34400391A7E /* defer-button-background@2x.png */,
+				AD48DAE91723F34400391A7E /* defer-button-background-active.png */,
+				AD48DAEA1723F34400391A7E /* defer-button-background-active@2x.png */,
+				AD48DAEF1723F34400391A7E /* inbox-button-background.png */,
+				AD48DAF01723F34400391A7E /* inbox-button-background@2x.png */,
+				AD48DAED1723F34400391A7E /* inbox-button-background-active.png */,
+				AD48DAEE1723F34400391A7E /* inbox-button-background-active@2x.png */,
+				AD48DAE71723F34400391A7E /* archive-button-background.png */,
+				AD48DAE81723F34400391A7E /* archive-button-background@2x.png */,
+				AD48DAE51723F34400391A7E /* archive-button-background-active.png */,
+				AD48DAE61723F34400391A7E /* archive-button-background-active@2x.png */,
+			);
+			name = "Segmented Control";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +309,26 @@
 				AD48DAA41723A87F00391A7E /* MBViewController.xib in Resources */,
 				AD48DAAD1723A8D300391A7E /* Icon@2x.png in Resources */,
 				AD48DAB21723AA4000391A7E /* Icon.png in Resources */,
+				AD48DAB91723B90E00391A7E /* inbox-star-icon.png in Resources */,
+				AD48DABA1723B90E00391A7E /* inbox-star-icon@2x.png in Resources */,
+				AD48DAC31723BBE000391A7E /* new-message-dot-white.png in Resources */,
+				AD48DAC41723BBE000391A7E /* new-message-dot-white@2x.png in Resources */,
+				AD48DAC51723BBE000391A7E /* unread-button.png in Resources */,
+				AD48DAC61723BBE000391A7E /* unread-button@2x.png in Resources */,
+				AD48DAD11723BE6C00391A7E /* inbox-star-icon-white.png in Resources */,
+				AD48DAD21723BE6C00391A7E /* inbox-star-icon-white@2x.png in Resources */,
+				AD48DAF11723F34400391A7E /* archive-button-background-active.png in Resources */,
+				AD48DAF21723F34400391A7E /* archive-button-background-active@2x.png in Resources */,
+				AD48DAF31723F34400391A7E /* archive-button-background.png in Resources */,
+				AD48DAF41723F34400391A7E /* archive-button-background@2x.png in Resources */,
+				AD48DAF51723F34400391A7E /* defer-button-background-active.png in Resources */,
+				AD48DAF61723F34400391A7E /* defer-button-background-active@2x.png in Resources */,
+				AD48DAF71723F34400391A7E /* defer-button-background.png in Resources */,
+				AD48DAF81723F34400391A7E /* defer-button-background@2x.png in Resources */,
+				AD48DAF91723F34400391A7E /* inbox-button-background-active.png in Resources */,
+				AD48DAFA1723F34400391A7E /* inbox-button-background-active@2x.png in Resources */,
+				AD48DAFB1723F34400391A7E /* inbox-button-background.png in Resources */,
+				AD48DAFC1723F34400391A7E /* inbox-button-background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +342,7 @@
 				AD48DA941723A87F00391A7E /* main.m in Sources */,
 				AD48DA981723A87F00391A7E /* MBAppDelegate.m in Sources */,
 				AD48DAA11723A87F00391A7E /* MBViewController.m in Sources */,
+				AD48DAE11723F28400391A7E /* MBSegmentedControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,7 +393,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -283,7 +417,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
