@@ -65,6 +65,7 @@
 		AD48DB2D172402C000391A7E /* later-empty-state-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD48DB27172402C000391A7E /* later-empty-state-icon@2x.png */; };
 		AD48DB391724161300391A7E /* MBAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB361724161300391A7E /* MBAddress.m */; };
 		AD48DB3A1724161300391A7E /* MBMail.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB381724161300391A7E /* MBMail.m */; };
+		AD48DB3D1724167000391A7E /* MBMailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD48DB3C1724167000391A7E /* MBMailCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +135,8 @@
 		AD48DB361724161300391A7E /* MBAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBAddress.m; sourceTree = "<group>"; };
 		AD48DB371724161300391A7E /* MBMail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMail.h; sourceTree = "<group>"; };
 		AD48DB381724161300391A7E /* MBMail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMail.m; sourceTree = "<group>"; };
+		AD48DB3B1724167000391A7E /* MBMailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMailCell.h; sourceTree = "<group>"; };
+		AD48DB3C1724167000391A7E /* MBMailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,7 @@
 			children = (
 				AD48DB341724160100391A7E /* Models */,
 				AD48DADE1723F26F00391A7E /* Views */,
+				AD48DB3E1724167B00391A7E /* Controllers */,
 				AD48DA961723A87F00391A7E /* MBAppDelegate.h */,
 				AD48DA971723A87F00391A7E /* MBAppDelegate.m */,
 				AD48DA9F1723A87F00391A7E /* MBViewController.h */,
@@ -259,6 +263,8 @@
 		AD48DADE1723F26F00391A7E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				AD48DB3B1724167000391A7E /* MBMailCell.h */,
+				AD48DB3C1724167000391A7E /* MBMailCell.m */,
 				AD48DADF1723F28400391A7E /* MBSegmentedControl.h */,
 				AD48DAE01723F28400391A7E /* MBSegmentedControl.m */,
 			);
@@ -372,6 +378,13 @@
 				AD48DB361724161300391A7E /* MBAddress.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		AD48DB3E1724167B00391A7E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,6 +504,7 @@
 				AD48DAE11723F28400391A7E /* MBSegmentedControl.m in Sources */,
 				AD48DB391724161300391A7E /* MBAddress.m in Sources */,
 				AD48DB3A1724161300391A7E /* MBMail.m in Sources */,
+				AD48DB3D1724167000391A7E /* MBMailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
