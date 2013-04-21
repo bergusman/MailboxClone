@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, MBMailsType) {
+    MBMailsTypeInbox,
+    MBMailsTypeArchived,
+    MBMailsTypeDefer
+};
+
 @interface MBMailsViewController : UIViewController
+
+@property (nonatomic, assign) MBMailsType type;
 
 @end

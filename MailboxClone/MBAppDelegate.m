@@ -8,6 +8,7 @@
 
 #import "MBAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MBMainViewController.h"
 #import "MBMailsViewController.h"
 
 @interface MBAppDelegate ()
@@ -25,8 +26,9 @@
     
     UIViewController *wrapController = [[UIViewController alloc] init];
     
+    MBMainViewController *vc1 = [[MBMainViewController alloc] init];
     MBMailsViewController *vc2 = [[MBMailsViewController alloc] init];
-    self.nc = [[UINavigationController alloc] initWithRootViewController:vc2];
+    self.nc = [[UINavigationController alloc] initWithRootViewController:vc1];
     
     [wrapController.view addSubview:self.nc.view];
     self.nc.view.frame = wrapController.view.bounds;

@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSCalendar *calendar;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
+@property (nonatomic, strong) UIImageView *backgroundLogo;
+
 @end
 
 @implementation MBMailsViewController
@@ -30,6 +32,10 @@
     [super viewDidLoad];
     self.view.opaque = YES;
     self.view.backgroundColor = MB_RGB(227, 227, 227);
+    
+    self.backgroundLogo = [[UIImageView alloc] init];
+    [self.view addSubview:self.backgroundLogo];
+    [self setupBackgroundLogo];
     
     self.tableView = [[UITableView alloc] init];
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -48,7 +54,7 @@
     NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"emails.json" withExtension:@""];
     NSData *data = [NSData dataWithContentsOfURL:dataURL];
     NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    self.mails = [[MBMail mailsWithAttributes:json] mutableCopy];
+    //self.mails = [[MBMail mailsWithAttributes:json] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +80,19 @@
     }
     
     return [self.dateFormatter stringFromDate:date];
+}
+
+- (void)setupBackgroundLogo {
+    UIImage *image = nil;
+    if (self.type == MBMailsTypeInbox) {
+        image = [UIImage imageNamed:@"inbox-icon-background-overlay"];
+    } else if (self.type == MBMailsTypeArchived) {
+        image = [UIImage imageNamed:@"archive-empty-state-icon"];
+    } else if (self.type == MBMailsTypeDefer) {
+        image = [UIImage imageNamed:@"later-empty-state-icon"];
+    }
+    self.backgroundLogo.image = image;
+    self.backgroundLogo.frame = CGRectMake((320 - image.size.width) / 2.0 + 0.5, 96, image.size.width, image.size.height);
 }
 
 #pragma mark - MBMailCellDelegate
