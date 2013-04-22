@@ -37,7 +37,7 @@
 @end
 
 @implementation MBMailsViewController {
-    UISearchDisplayController *s;
+    UISearchDisplayController *_searchDisplayController2; // Because of apple bug
 }
 
 - (void)dealloc {
@@ -96,13 +96,12 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)bingo:(id)vc {
+- (void)setupSearchControllerWithContentController:(UIViewController *)vc {
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     [searchBar sizeToFit];
     self.tableView.tableHeaderView = searchBar;
-    s = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:vc];
-    searchBar.tintColor = MB_RGB(210, 210, 210);
-
+    _searchDisplayController2 = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:vc];
+    
     // Hack
     for (UIView *view in searchBar.subviews) {
         if ([view isKindOfClass:[UIImageView class]]) {

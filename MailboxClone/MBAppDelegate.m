@@ -59,6 +59,8 @@
     [searchBar setImage:[UIImage imageNamed:@"search-magnifying-glass-icon"]
             forSearchBarIcon:UISearchBarIconSearch
                   state:UIControlStateNormal];
+    
+    [searchBar setTintColor:MB_RGB(210, 210, 210)];
 }
 
 @end

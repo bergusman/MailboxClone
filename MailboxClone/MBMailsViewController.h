@@ -16,7 +16,7 @@
 @property (nonatomic, weak) id<MBMailsViewControllerDelegate> delegate;
 @property (nonatomic, assign) MBMailsType type;
 
-- (void)bingo:(id)vc;
+- (void)setupSearchControllerWithContentController:(UIViewController *)vc;
 
 @end
 

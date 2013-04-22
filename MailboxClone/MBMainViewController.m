@@ -54,7 +54,7 @@
         mailsVC.type = [mailsType integerValue];
         [self.view addSubview:mailsVC.view];
         mailsVC.view.hidden = YES;
-        [mailsVC bingo:self];
+        [mailsVC setupSearchControllerWithContentController:self];
         [mailsVCs addObject:mailsVC];
     }
     
