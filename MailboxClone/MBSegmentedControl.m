@@ -101,7 +101,7 @@
     if (index == 0) {
         blinkImage = [UIImage imageNamed:@"defer-blink-icon"];
         blinkLayer.frame = CGRectMake(22, 8, blinkImage.size.width, blinkImage.size.height);
-        scale = 1.3;
+        scale = 1.25;
     } else if (index == 1) {
         blinkImage = [UIImage imageNamed:@"inbox-blink-icon"];
         blinkLayer.frame = CGRectMake(72, 8, blinkImage.size.width, blinkImage.size.height);
