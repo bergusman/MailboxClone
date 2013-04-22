@@ -188,6 +188,10 @@
      */
 }
 
+- (void)prepareForReuse {
+    self.backgroundView.backgroundColor = _normalColor;
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     _separator.backgroundColor = MB_RGB(199, 199, 199);
@@ -293,6 +297,7 @@
                     CGPoint center = self.contentView.center;
                     center.x = self.contentView.bounds.size.width / 2;
                     self.contentView.center = center;
+                    self.backgroundView.backgroundColor = _normalColor;
                 } completion:nil];
             }];
         }
@@ -345,6 +350,8 @@
     }
     return NO;
 }
+
+#pragma mark - Message Count Image
 
 #pragma mark - Properties
 

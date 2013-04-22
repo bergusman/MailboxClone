@@ -69,6 +69,10 @@
     self.mails1.view.hidden = YES;
     self.mails2.view.hidden = NO;
     self.mails3.view.hidden = YES;
+    
+    [self.mails1 bingo:self];
+    [self.mails2 bingo:self];
+    [self.mails3 bingo:self];
 }
 
 - (void)didReceiveMemoryWarning {

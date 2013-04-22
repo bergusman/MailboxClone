@@ -13,4 +13,6 @@
 
 @property (nonatomic, assign) MBMailsType type;
 
+- (void)bingo:(id)vc;
+
 @end

@@ -21,8 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-bar-background"] forBarMetrics:UIBarMetricsDefault];
-    [[UISearchBar appearance] setBackgroundImage:[UIImage imageNamed:@"search-bar-background"]];
+    [self setupAppearance];
     
     UIViewController *wrapController = [[UIViewController alloc] init];
     
@@ -41,6 +40,22 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)setupAppearance {
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav-bar-background"]
+                                       forBarMetrics:UIBarMetricsDefault];
+    
+    UISearchBar *searchBar = [UISearchBar appearance];
+    
+    [searchBar setBackgroundImage:[UIImage imageNamed:@"search-bar-background"]];
+    [searchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"search-input-field-background"]
+                                    forState:UIControlStateNormal];
+    [searchBar setSearchFieldBackgroundPositionAdjustment:UIOffsetMake(0, 1)];
+    [searchBar setSearchTextPositionAdjustment:UIOffsetMake(0, -1)];
+    [searchBar setImage:[UIImage imageNamed:@"search-magnifying-glass-icon"]
+            forSearchBarIcon:UISearchBarIconSearch
+                  state:UIControlStateNormal];
 }
 
 @end
