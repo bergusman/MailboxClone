@@ -38,9 +38,7 @@
     
     _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     _spinner.center = CGPointMake(15, 43);
-    [_spinner startAnimating];
     [self addSubview:_spinner];
-    _spinner.hidden = YES;
     
     _textLabel = [[UILabel alloc] init];
     _textLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
@@ -90,14 +88,14 @@
 
 - (void)beginLoading {
     _loading = YES;
-    _spinner.hidden = NO;
+    [_spinner startAnimating];
     self.userInteractionEnabled = NO;
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
 - (void)endLoading {
     _loading = NO;
-    _spinner.hidden = YES;
+    [_spinner stopAnimating];
     self.userInteractionEnabled = YES;
 }
 

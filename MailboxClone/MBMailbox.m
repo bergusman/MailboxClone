@@ -90,9 +90,9 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 - (void)loadWithCompletion:(void (^)(BOOL success))completion {
     NSNumber *page = nil;
     if (self.total > 0) {
-        NSLog(@"%d", [self.allMails count]);
+        //NSLog(@"%d", [self.allMails count]);
         page = @([self.allMails count] / self.perPage);
-        NSLog(@"%@", page);
+        //NSLog(@"%@", page);
     }
     
     [self loadMailsWithPage:page success:^(id JSON) {
