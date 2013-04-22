@@ -40,6 +40,7 @@
     UIButton *writeButton = [[UIButton alloc] init];
     [writeButton setImage:writeImage forState:UIControlStateNormal];
     writeButton.frame = CGRectMake(320 - writeImage.size.width - 5, 6, writeImage.size.width, writeImage.size.height);
+    [writeButton addTarget:self action:@selector(clearMails:) forControlEvents:UIControlEventTouchUpInside];
     [self.navigationController.navigationBar addSubview:writeButton];
     
     MBSegmentedControl *segmentedControl = [[MBSegmentedControl alloc] init];
@@ -82,6 +83,11 @@
 - (void)typeAction:(MBSegmentedControl *)sender {
     [self transitionFrom:self.lastSelectedSegmentIndex to:sender.selectedSegmentIndex];
     self.lastSelectedSegmentIndex = sender.selectedSegmentIndex;
+}
+
+- (void)clearMails:(id)sender {
+    [[MBMailbox sharedMailbox] clear];
+    [[MBMailbox sharedMailbox] load];
 }
 
 - (void)transitionFrom:(NSInteger)from to:(NSInteger)to {

@@ -7,6 +7,7 @@
 //
 
 #import "MBMailbox.h"
+#import "AFNetworking.h"
 
 NSString * const MBMailboxDidAddMailNotification = @"MBMailboxDidAddMailNotification";
 NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
@@ -14,11 +15,14 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 @interface MBMailbox ()
 
 @property (nonatomic, assign) NSUInteger total;
-@property (nonatomic, assign) BOOL full;
 @property (nonatomic, strong) NSMutableArray *allMails;
 @property (nonatomic, strong) NSMutableArray *deferMails;
 @property (nonatomic, strong) NSMutableArray *inboxMails;
 @property (nonatomic, strong) NSMutableArray *archivedMails;
+
+@property (nonatomic, copy) NSString *server;
+
+@property (nonatomic, assign) NSInteger perPage;
 
 @end
 
@@ -27,10 +31,14 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 - (id)init {
     self = [super init];
     if (self) {
+        self.server = @"http://rocket-ios.herokuapp.com";
         [self clear];
-        [self load];
     }
     return self;
+}
+
+- (BOOL)isFull {
+    return [self.allMails count] == self.total;
 }
 
 - (void)addMail:(MBMail *)mail to:(MBMailsType)to {
@@ -42,7 +50,11 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
         [self.deferMails insertObject:mail atIndex:0];
     }
     
-    NSDictionary *userInfo = @{MBMailboxToUserInfoKey: [NSNumber numberWithInteger:to]};
+    [self postAddNotificationForType:to];
+}
+
+- (void)postAddNotificationForType:(MBMailsType)type {
+    NSDictionary *userInfo = @{MBMailboxToUserInfoKey:@(type)};
     [[NSNotificationCenter defaultCenter] postNotificationName:MBMailboxDidAddMailNotification
                                                         object:self
                                                       userInfo:userInfo];
@@ -60,11 +72,15 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 
 - (void)clear {
     self.total = 0;
-    self.full = NO;
     self.allMails = [NSMutableArray array];
     self.inboxMails = [NSMutableArray array];
     self.archivedMails = [NSMutableArray array];
     self.deferMails = [NSMutableArray array];
+    
+    // TODO: change post method
+    [self postAddNotificationForType:MBMailsTypeInbox];
+    [self postAddNotificationForType:MBMailsTypeDefer];
+    [self postAddNotificationForType:MBMailsTypeArchived];
 }
 
 - (void)load {
@@ -72,7 +88,36 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 }
 
 - (void)loadWithCompletion:(void (^)(BOOL success))completion {
+    NSNumber *page = nil;
+    if (self.total > 0) {
+        NSLog(@"%d", [self.allMails count]);
+        page = @([self.allMails count] / self.perPage);
+        NSLog(@"%@", page);
+    }
     
+    [self loadMailsWithPage:page success:^(id JSON) {
+        // Trust to answer!
+        
+        self.perPage = [JSON[@"pagination"][@"per_page"] integerValue];
+        self.total = [JSON[@"pagination"][@"total"] integerValue];
+        
+        NSArray *mails = [MBMail mailsWithAttributes:JSON[@"emails"]];
+        
+        [self.allMails addObjectsFromArray:mails];
+        [self.inboxMails addObjectsFromArray:mails];
+        
+        [self postAddNotificationForType:MBMailsTypeInbox];
+        
+        if (completion) {
+            completion(YES);
+        }
+    } failure:^(NSError *error, id JSON) {
+        if (completion) {
+            completion(NO);
+        }
+    }];
+    
+    /*
     NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"emails.json" withExtension:@""];
     NSData *data = [NSData dataWithContentsOfURL:dataURL];
     NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -80,12 +125,43 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
     self.inboxMails = self.allMails;
     
     self.total = 100;
-    
-    
-    if (completion) {
-        completion(YES);
-    }
+    */
 }
+
+#pragma mark - Networking
+
+- (void)loadMailsWithPage:(NSNumber *)page
+                  success:(void (^)(id JSON))success
+                  failure:(void (^)(NSError *error, id JSON))failure
+{
+    NSString *method = @"emails.json";
+    NSString *path = method;
+    if (page) {
+        path = [NSString stringWithFormat:@"%@?page=%d", method, [page integerValue]];
+    }
+    
+    NSURL *url = [NSURL URLWithString:path relativeToURL:[NSURL URLWithString:self.server]];
+    //NSLog(@"%@", [url absoluteString]);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:8];
+    
+    AFJSONRequestOperation *requestOperation =
+    [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        if (success) {
+            success(JSON);
+        }
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        if (failure) {
+            failure(error, JSON);
+        }
+    }];
+    
+    [requestOperation start];
+}
+
+#pragma mark - Singleton
 
 + (MBMailbox *)sharedMailbox {
     static MBMailbox *_sharedMailbox;

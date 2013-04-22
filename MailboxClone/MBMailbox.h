@@ -21,7 +21,7 @@ extern NSString * const MBMailboxToUserInfoKey;
 @interface MBMailbox : NSObject
 
 @property (nonatomic, assign, readonly) NSUInteger total;
-@property (nonatomic, assign, readonly) BOOL full;
+@property (nonatomic, assign, readonly, getter=isFull) BOOL full;
 
 @property (nonatomic, strong, readonly) NSMutableArray *allMails;
 @property (nonatomic, strong, readonly) NSMutableArray *deferMails;

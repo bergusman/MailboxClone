@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "MBMainViewController.h"
 #import "MBMailsViewController.h"
+#import "MBMailbox.h"
 
 @interface MBAppDelegate ()
 
@@ -22,6 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self setupAppearance];
+    
+    [[MBMailbox sharedMailbox] load];
     
     UIViewController *wrapController = [[UIViewController alloc] init];
     
