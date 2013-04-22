@@ -20,10 +20,10 @@ extern NSString * const MBMailboxToUserInfoKey;
 
 @interface MBMailbox : NSObject
 
-@property (nonatomic, strong) NSMutableArray *allMails;
-@property (nonatomic, strong) NSMutableArray *deferMails;
-@property (nonatomic, strong) NSMutableArray *inboxMails;
-@property (nonatomic, strong) NSMutableArray *archivedMails;
+@property (nonatomic, strong, readonly) NSMutableArray *allMails;
+@property (nonatomic, strong, readonly) NSMutableArray *deferMails;
+@property (nonatomic, strong, readonly) NSMutableArray *inboxMails;
+@property (nonatomic, strong, readonly) NSMutableArray *archivedMails;
 
 - (void)addMail:(MBMail *)mail to:(MBMailsType)to;
 - (void)deleteMail:(MBMail *)mail from:(MBMailsType)from;

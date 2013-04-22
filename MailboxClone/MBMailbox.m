@@ -11,6 +11,15 @@
 NSString * const MBMailboxDidAddMailNotification = @"MBMailboxDidAddMailNotification";
 NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 
+@interface MBMailbox ()
+
+@property (nonatomic, strong) NSMutableArray *allMails;
+@property (nonatomic, strong) NSMutableArray *deferMails;
+@property (nonatomic, strong) NSMutableArray *inboxMails;
+@property (nonatomic, strong) NSMutableArray *archivedMails;
+
+@end
+
 @implementation MBMailbox
 
 - (id)init {
@@ -21,6 +30,8 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
         NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.allMails = [[MBMail mailsWithAttributes:json] mutableCopy];
         self.inboxMails = self.allMails;
+        self.archivedMails = [NSMutableArray array];
+        self.deferMails = [NSMutableArray array];
     }
     return self;
 }
