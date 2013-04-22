@@ -20,6 +20,9 @@ extern NSString * const MBMailboxToUserInfoKey;
 
 @interface MBMailbox : NSObject
 
+@property (nonatomic, assign, readonly) NSUInteger total;
+@property (nonatomic, assign, readonly) BOOL full;
+
 @property (nonatomic, strong, readonly) NSMutableArray *allMails;
 @property (nonatomic, strong, readonly) NSMutableArray *deferMails;
 @property (nonatomic, strong, readonly) NSMutableArray *inboxMails;
@@ -27,6 +30,10 @@ extern NSString * const MBMailboxToUserInfoKey;
 
 - (void)addMail:(MBMail *)mail to:(MBMailsType)to;
 - (void)deleteMail:(MBMail *)mail from:(MBMailsType)from;
+
+- (void)clear;
+- (void)load;
+- (void)loadWithCompletion:(void (^)(BOOL success))completion;
 
 + (MBMailbox *)sharedMailbox;
 

@@ -89,6 +89,7 @@
 		AD6B17951724E92F005C4CBE /* defer-blink-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6B178F1724E92E005C4CBE /* defer-blink-icon@2x.png */; };
 		AD6B17961724E92F005C4CBE /* inbox-blink-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6B17901724E92F005C4CBE /* inbox-blink-icon.png */; };
 		AD6B17971724E92F005C4CBE /* inbox-blink-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD6B17911724E92F005C4CBE /* inbox-blink-icon@2x.png */; };
+		ADAA52141724F74C00F38C8A /* MBLoadMoreButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAA52131724F74C00F38C8A /* MBLoadMoreButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -185,6 +186,8 @@
 		AD6B178F1724E92E005C4CBE /* defer-blink-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "defer-blink-icon@2x.png"; path = "MailboxClone/Images/defer-blink-icon@2x.png"; sourceTree = "<group>"; };
 		AD6B17901724E92F005C4CBE /* inbox-blink-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-blink-icon.png"; path = "MailboxClone/Images/inbox-blink-icon.png"; sourceTree = "<group>"; };
 		AD6B17911724E92F005C4CBE /* inbox-blink-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "inbox-blink-icon@2x.png"; path = "MailboxClone/Images/inbox-blink-icon@2x.png"; sourceTree = "<group>"; };
+		ADAA52121724F74C00F38C8A /* MBLoadMoreButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLoadMoreButton.h; sourceTree = "<group>"; };
+		ADAA52131724F74C00F38C8A /* MBLoadMoreButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLoadMoreButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +321,8 @@
 				AD48DB3C1724167000391A7E /* MBMailCell.m */,
 				AD48DADF1723F28400391A7E /* MBSegmentedControl.h */,
 				AD48DAE01723F28400391A7E /* MBSegmentedControl.m */,
+				ADAA52121724F74C00F38C8A /* MBLoadMoreButton.h */,
+				ADAA52131724F74C00F38C8A /* MBLoadMoreButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -625,6 +630,7 @@
 				AD48DB551724519A00391A7E /* MBMailsViewController.m in Sources */,
 				AD48DB5A1724531F00391A7E /* MBMailbox.m in Sources */,
 				AD48DB5F1724560D00391A7E /* MBMainViewController.m in Sources */,
+				ADAA52141724F74C00F38C8A /* MBLoadMoreButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

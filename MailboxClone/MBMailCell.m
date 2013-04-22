@@ -106,8 +106,6 @@
     self.backgroundView = backgroundView;
     
     UIView *selectedBackgroundView = [[UIView alloc] init];
-    selectedBackgroundView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
-    selectedBackgroundView.backgroundColor = [UIColor orangeColor];
     selectedBackgroundView.backgroundColor = MB_RGB(162, 162, 162);
     self.selectedBackgroundView = selectedBackgroundView;
     
@@ -189,6 +187,7 @@
 }
 
 - (void)prepareForReuse {
+    [super prepareForReuse];
     self.backgroundView.backgroundColor = _normalColor;
 }
 

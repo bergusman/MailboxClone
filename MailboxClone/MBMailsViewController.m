@@ -9,6 +9,7 @@
 #import "MBMailsViewController.h"
 #import "MBMailCell.h"
 #import "MBMailbox.h"
+#import "MBLoadMoreButton.h"
 
 @interface MBMailsViewController () <
     UITableViewDataSource,
@@ -30,6 +31,8 @@
 
 @property (nonatomic, assign) MBMailsType leftType;
 @property (nonatomic, assign) MBMailsType rightType;
+
+@property (nonatomic, strong) MBLoadMoreButton *loadMoreButton;
 
 @end
 
@@ -82,6 +85,11 @@
     self.calendar = [NSCalendar currentCalendar];
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    
+    self.loadMoreButton = [[MBLoadMoreButton alloc] init];
+    [self.loadMoreButton addTarget:self action:@selector(loadMore:) forControlEvents:UIControlEventValueChanged];
+    self.loadMoreButton.text = @"Load More Messages...";
+    [self.loadMoreButton sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,7 +137,23 @@
     MBMailsType type = [userInfo[MBMailboxToUserInfoKey] integerValue];
     if (type == self.type) {
         [self.tableView reloadData];
+        [self setupLoadMoreButton];
     }
+}
+
+- (void)setupLoadMoreButton {
+    if (self.type == MBMailsTypeInbox && ![MBMailbox sharedMailbox].full && [MBMailbox sharedMailbox].total > 0) {
+        self.tableView.tableFooterView = self.loadMoreButton;
+        self.loadMoreButton.detailText = [NSString stringWithFormat:@"About %d conversations total", [MBMailbox sharedMailbox].total];
+    } else {
+        self.tableView.tableFooterView = nil;
+    }
+}
+
+- (void)loadMore:(id)sender {
+    [[MBMailbox sharedMailbox] loadWithCompletion:^(BOOL success) {
+        [self.loadMoreButton endLoading];
+    }];
 }
 
 #pragma mark - Mails Collection
@@ -200,6 +224,7 @@
     _type = type;
     [self setupBackgroundLogo];
     [self setupCellParams];
+    [self setupLoadMoreButton];
 }
 
 #pragma mark - MBMailCellDelegate

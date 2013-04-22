@@ -13,6 +13,8 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 
 @interface MBMailbox ()
 
+@property (nonatomic, assign) NSUInteger total;
+@property (nonatomic, assign) BOOL full;
 @property (nonatomic, strong) NSMutableArray *allMails;
 @property (nonatomic, strong) NSMutableArray *deferMails;
 @property (nonatomic, strong) NSMutableArray *inboxMails;
@@ -25,13 +27,8 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 - (id)init {
     self = [super init];
     if (self) {
-        NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"emails.json" withExtension:@""];
-        NSData *data = [NSData dataWithContentsOfURL:dataURL];
-        NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-        self.allMails = [[MBMail mailsWithAttributes:json] mutableCopy];
-        self.inboxMails = self.allMails;
-        self.archivedMails = [NSMutableArray array];
-        self.deferMails = [NSMutableArray array];
+        [self clear];
+        [self load];
     }
     return self;
 }
@@ -58,6 +55,35 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
         [self.archivedMails removeObject:mail];
     } else if (from == MBMailsTypeDefer) {
         [self.deferMails removeObject:mail];
+    }
+}
+
+- (void)clear {
+    self.total = 0;
+    self.full = NO;
+    self.allMails = [NSMutableArray array];
+    self.inboxMails = [NSMutableArray array];
+    self.archivedMails = [NSMutableArray array];
+    self.deferMails = [NSMutableArray array];
+}
+
+- (void)load {
+    [self loadWithCompletion:nil];
+}
+
+- (void)loadWithCompletion:(void (^)(BOOL success))completion {
+    
+    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"emails.json" withExtension:@""];
+    NSData *data = [NSData dataWithContentsOfURL:dataURL];
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    self.allMails = [[MBMail mailsWithAttributes:json] mutableCopy];
+    self.inboxMails = self.allMails;
+    
+    self.total = 100;
+    
+    
+    if (completion) {
+        completion(YES);
     }
 }
 
