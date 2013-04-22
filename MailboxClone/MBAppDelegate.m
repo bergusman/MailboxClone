@@ -27,7 +27,7 @@
     UIViewController *wrapController = [[UIViewController alloc] init];
     
     MBMainViewController *vc1 = [[MBMainViewController alloc] init];
-    MBMailsViewController *vc2 = [[MBMailsViewController alloc] init];
+    //MBMailsViewController *vc2 = [[MBMailsViewController alloc] init];
     self.nc = [[UINavigationController alloc] initWithRootViewController:vc1];
     
     [wrapController.view addSubview:self.nc.view];

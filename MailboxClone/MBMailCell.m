@@ -363,23 +363,29 @@
     _unreadIcon.hidden = !_unread;
 }
 
-- (void)setFrom:(NSString *)from { _fromLabel.text = from; }
 - (NSString *)from { return _fromLabel.text; }
+- (void)setFrom:(NSString *)from { _fromLabel.text = from; }
 
-- (void)setSubject:(NSString *)subject { _subjectLabel.text = subject; }
 - (NSString *)subject { return _subjectLabel.text; }
+- (void)setSubject:(NSString *)subject { _subjectLabel.text = subject; }
 
-- (void)setBody:(NSString *)body { _bodyLabel.text = body; }
 - (NSString *)body { return _bodyLabel.text; }
+- (void)setBody:(NSString *)body { _bodyLabel.text = body; }
 
-- (void)setReceivedAt:(NSString *)receivedAt { _dateLabel.text = receivedAt; }
 - (NSString *)receivedAt { return _dateLabel.text; }
+- (void)setReceivedAt:(NSString *)receivedAt { _dateLabel.text = receivedAt; }
 
-- (void)setLeftImage:(UIImage *)leftImage { _leftImageView.image = leftImage; }
 - (UIImage *)leftImage { return _leftImageView.image; }
+- (void)setLeftImage:(UIImage *)leftImage {
+    _leftImageView.image = leftImage;
+    [_leftImageView sizeToFit];
+}
 
-- (void)setRightImage:(UIImage *)rightImage { _rightImageView.image = rightImage; }
 - (UIImage *)rightImage { return _rightImageView.image; }
+- (void)setRightImage:(UIImage *)rightImage {
+    _rightImageView.image = rightImage;
+    [_rightImageView sizeToFit];
+}
 
 - (void)setMessages:(NSUInteger)messages {
     _messages = messages;

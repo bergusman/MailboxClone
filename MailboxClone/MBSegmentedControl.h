@@ -12,4 +12,6 @@
 
 @property (nonatomic, assign) NSInteger selectedSegmentIndex;
 
+- (void)blinkSegmentAtIndex:(NSInteger)index;
+
 @end

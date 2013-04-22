@@ -96,4 +96,8 @@
     }
 }
 
+- (void)blinkSegmentAtIndex:(NSInteger)index {
+    
+}
+
 @end

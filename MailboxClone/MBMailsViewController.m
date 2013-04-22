@@ -1,6 +1,6 @@
 //
 //  MBMailsViewController.m
-//  RBTest1
+//  MailboxClone
 //
 //  Created by Vitaliy Berg on 4/21/13.
 //  Copyright (c) 2013 Vitaliy Berg. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import "MBMailsViewController.h"
 #import "MBMailCell.h"
-#import "MBMailBox.h"
+#import "MBMailbox.h"
 
 @interface MBMailsViewController () <
     UITableViewDataSource,
@@ -22,6 +22,11 @@
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property (nonatomic, strong) UIImageView *backgroundLogo;
+
+@property (nonatomic, strong) UIImage *leftImage;
+@property (nonatomic, strong) UIImage *rightImage;
+@property (nonatomic, strong) UIColor *leftColor;
+@property (nonatomic, strong) UIColor *rightColor;
 
 @end
 
@@ -50,11 +55,6 @@
     self.calendar = [NSCalendar currentCalendar];
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    
-    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"emails.json" withExtension:@""];
-    NSData *data = [NSData dataWithContentsOfURL:dataURL];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    //self.mails = [[MBMail mailsWithAttributes:json] mutableCopy];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,6 +95,28 @@
     self.backgroundLogo.frame = CGRectMake((320 - image.size.width) / 2.0 + 0.5, 96, image.size.width, image.size.height);
 }
 
+- (void)setType:(MBMailsType)type {
+    _type = type;
+    [self setupBackgroundLogo];
+    
+    if (type == MBMailsTypeArchived) {
+        self.leftImage = [UIImage imageNamed:@"swipe-defer-icon"];
+        self.rightImage = [UIImage imageNamed:@"swipe-mailbox-icon"];
+        self.leftColor = MB_RGB(98, 217, 98);
+        self.rightColor = MB_RGB(81, 185, 219);
+    } else if (type == MBMailsTypeDefer) {
+        self.leftImage = [UIImage imageNamed:@"swipe-mailbox-icon"];
+        self.rightImage = [UIImage imageNamed:@"swipe-archive-icon"];
+        self.leftColor = MB_RGB(255, 222, 71);
+        self.rightColor = MB_RGB(98, 217, 98);
+    } else if (type == MBMailsTypeInbox) {
+        self.leftImage = [UIImage imageNamed:@"swipe-archive-icon"];
+        self.rightImage = [UIImage imageNamed:@"swipe-defer-icon"];
+        self.leftColor = MB_RGB(98, 217, 98);
+        self.rightColor = MB_RGB(255, 222, 71);
+    }
+}
+
 #pragma mark - MBMailCellDelegate
 
 - (void)mailCellDidSlideFromLeft:(MBMailCell *)cell {
@@ -121,6 +143,10 @@
     if (!cell) {
         cell = [[MBMailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         cell.delegate = self;
+        cell.leftImage = self.leftImage;
+        cell.rightImage = self.rightImage;
+        cell.leftColor = self.leftColor;
+        cell.rightColor = self.rightColor;
     }
     
     MBMail *mail = self.mails[indexPath.row];

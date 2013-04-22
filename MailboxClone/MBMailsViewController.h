@@ -1,18 +1,13 @@
 //
 //  MBMailsViewController.h
-//  RBTest1
+//  MailboxClone
 //
 //  Created by Vitaliy Berg on 4/21/13.
 //  Copyright (c) 2013 Vitaliy Berg. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, MBMailsType) {
-    MBMailsTypeInbox,
-    MBMailsTypeArchived,
-    MBMailsTypeDefer
-};
+#import "MBMailbox.h"
 
 @interface MBMailsViewController : UIViewController
 

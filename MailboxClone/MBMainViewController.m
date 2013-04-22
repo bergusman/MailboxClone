@@ -28,60 +28,52 @@
     [super viewDidLoad];
     self.view.backgroundColor = MB_RGB(227, 227, 227);
     
+    // Don't ask why I did it!
+    UIImage *listImage = [UIImage imageNamed:@"nav-bar-list-button"];
+    UIButton *listButton = [[UIButton alloc] init];
+    [listButton setImage:listImage forState:UIControlStateNormal];
+    listButton.frame = CGRectMake(6, 6, listImage.size.width, listImage.size.height);
+    [self.navigationController.navigationBar addSubview:listButton];
     
-    UIImage *image1 = [UIImage imageNamed:@"create-email-nav-bar-button"];
-    UIButton *button4 = [[UIButton alloc] init];
-    [button4 setImage:image1 forState:UIControlStateNormal];
-    //button4.frame = CGRectMake(0, 0, image1.size.width, image1.size.height);
-    button4.frame = CGRectMake(0, 0, image1.size.width, image1.size.height);
-    
-    //UIView *view2 = [[UIView alloc] init];
-    //view2.bounds = button4.bounds;
-    //[view2 addSubview:button4];
-    //UIBarButtonItem *item1 = [[UIBarButtonItem alloc] initWithCustomView:view2];
-    //self.navigationItem.rightBarButtonItem = item1;
-    
-    UIImage *image2 = [UIImage imageNamed:@"nav-bar-list-button"];
-    UIButton *button5 = [[UIButton alloc] init];
-    [button5 setImage:image2 forState:UIControlStateNormal];
-    //button5.frame = CGRectMake(0, 0, image2.size.width + 2, image2.size.height);
-    button5.frame = CGRectMake(6, 6, image2.size.width + 2, image2.size.height);
-    [self.navigationController.navigationBar addSubview:button5];
-    
-    //UIView *view3 = [[UIView alloc] init];
-    //view3.bounds = button5.bounds;
-    //[view3 addSubview:button5];
-    //UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithCustomView:button5];
-    //self.navigationItem.leftBarButtonItem = item2;
-    
+    // Don't ask why I did it!
+    UIImage *writeImage = [UIImage imageNamed:@"create-email-nav-bar-button"];
+    UIButton *writeButton = [[UIButton alloc] init];
+    [writeButton setImage:writeImage forState:UIControlStateNormal];
+    writeButton.frame = CGRectMake(320 - writeImage.size.width - 5, 6, writeImage.size.width, writeImage.size.height);
+    [self.navigationController.navigationBar addSubview:writeButton];
     
     MBSegmentedControl *segmentedControl = [[MBSegmentedControl alloc] init];
     [segmentedControl addTarget:self action:@selector(typeAction:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = segmentedControl;
     
-    
     self.mails1 = [[MBMailsViewController alloc] init];
     self.mails1.view.frame = self.view.bounds;
+    self.mails1.type = MBMailsTypeDefer;
     [self.view addSubview:self.mails1.view];
     
     self.mails2 = [[MBMailsViewController alloc] init];
     self.mails2.view.frame = self.view.bounds;
+    self.mails2.type = MBMailsTypeInbox;
     [self.view addSubview:self.mails2.view];
     
     self.mails3 = [[MBMailsViewController alloc] init];
     self.mails3.view.frame = self.view.bounds;
+    self.mails3.type = MBMailsTypeArchived;
     [self.view addSubview:self.mails3.view];
     
     self.mailsControllers = @[self.mails1, self.mails2, self.mails3];
     
     segmentedControl.selectedSegmentIndex = 1;
     self.lastSelectedSegmentIndex = segmentedControl.selectedSegmentIndex;
+    
+    self.mails1.view.hidden = YES;
+    self.mails2.view.hidden = NO;
+    self.mails3.view.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 - (void)typeAction:(MBSegmentedControl *)sender {
     [self transitionFrom:self.lastSelectedSegmentIndex to:sender.selectedSegmentIndex];
