@@ -10,7 +10,7 @@
 #import "AFNetworking.h"
 
 NSString * const MBMailboxDidAddMailNotification = @"MBMailboxDidAddMailNotification";
-NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
+NSString * const MBMailboxMailsTypeUserInfoKey = @"MBMailboxMailsTypeUserInfoKey";
 
 @interface MBMailbox ()
 
@@ -53,13 +53,6 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
     [self postAddNotificationForType:to];
 }
 
-- (void)postAddNotificationForType:(MBMailsType)type {
-    NSDictionary *userInfo = @{MBMailboxToUserInfoKey:@(type)};
-    [[NSNotificationCenter defaultCenter] postNotificationName:MBMailboxDidAddMailNotification
-                                                        object:self
-                                                      userInfo:userInfo];
-}
-
 - (void)deleteMail:(MBMail *)mail from:(MBMailsType)from {
     if (from == MBMailsTypeInbox) {
         [self.inboxMails removeObject:mail];
@@ -68,6 +61,13 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
     } else if (from == MBMailsTypeDefer) {
         [self.deferMails removeObject:mail];
     }
+}
+
+- (void)postAddNotificationForType:(MBMailsType)type {
+    NSDictionary *userInfo = @{MBMailboxMailsTypeUserInfoKey:@(type)};
+    [[NSNotificationCenter defaultCenter] postNotificationName:MBMailboxDidAddMailNotification
+                                                        object:self
+                                                      userInfo:userInfo];
 }
 
 - (void)clear {
@@ -90,9 +90,7 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
 - (void)loadWithCompletion:(void (^)(BOOL success))completion {
     NSNumber *page = nil;
     if (self.total > 0) {
-        //NSLog(@"%d", [self.allMails count]);
         page = @([self.allMails count] / self.perPage);
-        //NSLog(@"%@", page);
     }
     
     [self loadMailsWithPage:page success:^(id JSON) {
@@ -116,16 +114,6 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
             completion(NO);
         }
     }];
-    
-    /*
-    NSURL *dataURL = [[NSBundle mainBundle] URLForResource:@"emails.json" withExtension:@""];
-    NSData *data = [NSData dataWithContentsOfURL:dataURL];
-    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    self.allMails = [[MBMail mailsWithAttributes:json] mutableCopy];
-    self.inboxMails = self.allMails;
-    
-    self.total = 100;
-    */
 }
 
 #pragma mark - Networking
@@ -141,7 +129,6 @@ NSString * const MBMailboxToUserInfoKey = @"MBMailboxToUserInfoKey";
     }
     
     NSURL *url = [NSURL URLWithString:path relativeToURL:[NSURL URLWithString:self.server]];
-    //NSLog(@"%@", [url absoluteString]);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy

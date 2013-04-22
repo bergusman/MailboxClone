@@ -134,7 +134,7 @@
 
 - (void)addMailNotification:(NSNotification *)notification {
     NSDictionary *userInfo = notification.userInfo;
-    MBMailsType type = [userInfo[MBMailboxToUserInfoKey] integerValue];
+    MBMailsType type = [userInfo[MBMailboxMailsTypeUserInfoKey] integerValue];
     if (type == self.type) {
         [self.tableView reloadData];
         [self setupLoadMoreButton];
@@ -231,18 +231,22 @@
 
 - (void)mailCellDidSlideFromLeft:(MBMailCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    MBMail *mail = [self mailAtIndex:indexPath.row];
-    [[MBMailbox sharedMailbox] deleteMail:mail from:self.type];
-    [[MBMailbox sharedMailbox] addMail:mail to:self.leftType];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    [self moveMailAtIndexPath:indexPath to:self.leftType];
 }
 
 - (void)mailCellDidSlideFromRight:(MBMailCell *)cell {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self moveMailAtIndexPath:indexPath to:self.rightType];
+}
+
+- (void)moveMailAtIndexPath:(NSIndexPath *)indexPath to:(MBMailsType)to {
     MBMail *mail = [self mailAtIndex:indexPath.row];
     [[MBMailbox sharedMailbox] deleteMail:mail from:self.type];
-    [[MBMailbox sharedMailbox] addMail:mail to:self.rightType];
+    [[MBMailbox sharedMailbox] addMail:mail to:to];
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    if ([self.delegate respondsToSelector:@selector(mailsViewController:didMoveMailTo:)]) {
+        [self.delegate mailsViewController:self didMoveMailTo:to];
+    }
 }
 
 #pragma mark - UITableViewDataSource

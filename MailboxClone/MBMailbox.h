@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, MBMailsType) {
 };
 
 extern NSString * const MBMailboxDidAddMailNotification;
-extern NSString * const MBMailboxToUserInfoKey;
+extern NSString * const MBMailboxMailsTypeUserInfoKey;
 
 @interface MBMailbox : NSObject
 

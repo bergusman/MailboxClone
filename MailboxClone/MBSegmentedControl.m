@@ -7,12 +7,10 @@
 //
 
 #import "MBSegmentedControl.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MBSegmentedControl {
     NSArray *_buttons;
-    UIButton *_button1;
-    UIButton *_button2;
-    UIButton *_button3;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -40,40 +38,38 @@
 }
 
 - (void)initialize {
-    _button1 = [[UIButton alloc] init];
-    [_button1 setBackgroundImage:[UIImage imageNamed:@"defer-button-background"] forState:UIControlStateNormal];
-    [_button1 setBackgroundImage:[UIImage imageNamed:@"defer-button-background-active"] forState:UIControlStateSelected];
-    _button1.frame = CGRectMake(0, 0, 54, 32);
-    [self addSubview:_button1];
-    
-    _button2 = [[UIButton alloc] init];
-    [_button2 setBackgroundImage:[UIImage imageNamed:@"inbox-button-background"] forState:UIControlStateNormal];
-    [_button2 setBackgroundImage:[UIImage imageNamed:@"inbox-button-background-active"] forState:UIControlStateSelected];
-    _button2.frame = CGRectMake(54, 0, 54, 32);
-    [self addSubview:_button2];
-    
-    _button3 = [[UIButton alloc] init];
-    [_button3 setBackgroundImage:[UIImage imageNamed:@"archive-button-background"] forState:UIControlStateNormal];
-    [_button3 setBackgroundImage:[UIImage imageNamed:@"archive-button-background-active"] forState:UIControlStateSelected];
-    _button3.frame = CGRectMake(108, 0, 54, 32);
-    [self addSubview:_button3];
-    
-    [_button1 addTarget:self action:@selector(touchUpInsideAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_button2 addTarget:self action:@selector(touchUpInsideAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_button3 addTarget:self action:@selector(touchUpInsideAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    _buttons = @[_button1, _button2, _button3];
-    
-    _selectedSegmentIndex = UISegmentedControlNoSegment;
-    
     [self sizeToFit];
+    
+    UIButton *button1 = [[UIButton alloc] init];
+    [button1 setBackgroundImage:[UIImage imageNamed:@"defer-button-background"] forState:UIControlStateNormal];
+    [button1 setBackgroundImage:[UIImage imageNamed:@"defer-button-background-active"] forState:UIControlStateSelected];
+    [button1 addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    button1.frame = CGRectMake(0, 0, 54, 32);
+    [self addSubview:button1];
+    
+    UIButton *button2 = [[UIButton alloc] init];
+    [button2 setBackgroundImage:[UIImage imageNamed:@"inbox-button-background"] forState:UIControlStateNormal];
+    [button2 setBackgroundImage:[UIImage imageNamed:@"inbox-button-background-active"] forState:UIControlStateSelected];
+    [button2 addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    button2.frame = CGRectMake(54, 0, 54, 32);
+    [self addSubview:button2];
+    
+    UIButton *button3 = [[UIButton alloc] init];
+    [button3 setBackgroundImage:[UIImage imageNamed:@"archive-button-background"] forState:UIControlStateNormal];
+    [button3 setBackgroundImage:[UIImage imageNamed:@"archive-button-background-active"] forState:UIControlStateSelected];
+    [button3 addTarget:self action:@selector(touchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    button3.frame = CGRectMake(108, 0, 54, 32);
+    [self addSubview:button3];
+    
+    _buttons = @[button1, button2, button3];
+    _selectedSegmentIndex = UISegmentedControlNoSegment;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
     return CGSizeMake(162, 32);
 }
 
-- (void)touchUpInsideAction:(UIButton *)button {
+- (void)touchUpInside:(UIButton *)button {
     for (UIButton *button in _buttons) {
         button.selected = NO;
     }
@@ -97,7 +93,45 @@
 }
 
 - (void)blinkSegmentAtIndex:(NSInteger)index {
+    CALayer *blinkLayer = [CALayer layer];
+    UIImage *blinkImage = nil;
+    CGFloat scale = 0;
     
+    // Cannot set position dynamically
+    if (index == 0) {
+        blinkImage = [UIImage imageNamed:@"defer-blink-icon"];
+        blinkLayer.frame = CGRectMake(22, 8, blinkImage.size.width, blinkImage.size.height);
+        scale = 1.3;
+    } else if (index == 1) {
+        blinkImage = [UIImage imageNamed:@"inbox-blink-icon"];
+        blinkLayer.frame = CGRectMake(72, 8, blinkImage.size.width, blinkImage.size.height);
+        scale = 1.15;
+    } else if (index == 2) {
+        blinkImage = [UIImage imageNamed:@"archive-blink-icon"];
+        blinkLayer.frame = CGRectMake(125, 9, blinkImage.size.width, blinkImage.size.height);
+        scale = 1.2;
+    }
+    
+    blinkLayer.contents = (__bridge id)blinkImage.CGImage;
+    blinkLayer.contentsScale = [UIScreen mainScreen].scale;
+    
+    [self.layer addSublayer:blinkLayer];
+
+    CABasicAnimation *blinkAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    blinkAnimation.fromValue = @(1);
+    blinkAnimation.toValue = @(scale);
+    blinkAnimation.duration = 0.11;
+    blinkAnimation.autoreverses = YES;
+    blinkAnimation.fillMode = kCAFillModeBackwards;
+    blinkAnimation.delegate = self;
+    [blinkAnimation setValue:blinkLayer forKey:@"blinkLayer"];
+    
+    [blinkLayer addAnimation:blinkAnimation forKey:@"blink"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    CALayer *layer = [anim valueForKey:@"blinkLayer"];
+    [layer removeFromSuperlayer];
 }
 
 @end
